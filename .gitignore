@@ -12,3 +12,4 @@ classes/
 .classpath
 target
 out
+grails-app/i18n
