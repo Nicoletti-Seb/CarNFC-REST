@@ -10,7 +10,7 @@ class Person {
     String mail
     String password
 
-    static hasMany = [car: Car]
+    static hasMany = [cars: Car]
 
     static constraints = {
         firstName nullable: false, blank: false

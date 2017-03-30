@@ -1,13 +1,15 @@
 package com.mbds.carnfcapirest
 
+import grails.rest.Resource
+
+@Resource
 class Car {
 
     String matricule
     String marque
     Date nextMaintenance
     Date endInsurance
-
-    static hasOne = [place: Place]
+    Place place
 
     static belongsTo = [person: Person]
 
