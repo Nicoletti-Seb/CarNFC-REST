@@ -138,7 +138,25 @@ class PersonController {
 
     def login() {
         switch (request.getMethod()) {
+            case "POST":
+                def personInstance = Person.findByMail(request.JSON.mail);
 
+                if(!personInstance) {
+                    render(status: 404, text: "person mail not found")
+                    return
+                }
+
+                if(personInstance.password.equals(request.JSON.password)) {
+                    response.status = 200
+                    renderApplication(personInstance)
+                } else {
+                    render(status: 400, text: "wrong password")
+                    personInstance.errors.allErrors.each { println it }
+                }
+                break;
+            default:
+                render(status: 405, text: "Allow : POST")
+                break;
         }
     }
 

@@ -50,9 +50,8 @@ class PlaceController {
         }
     }
 
-    def add() {
-        render "CAN NOT ADD PLACE"
-        /*switch (request.getMethod()) {
+    /*def add() {
+        switch (request.getMethod()) {
             case "POST":
                 if (!request.getContentType().contains("json")) {
                     render(status: 400, text: "json only accepted")
@@ -75,8 +74,8 @@ class PlaceController {
             default:
                 render(status: 405, text: "Allow : POST")
                 break;
-        }*/
-    }
+        }
+    }*/
 
     def update() {
         switch (request.getMethod()) {
@@ -111,7 +110,7 @@ class PlaceController {
         }
     }
 
-    def delete() {
+    /*def delete() {
         switch (request.getMethod()) {
             case "DELETE":
                 def placeInstance = Place.get(params.id)
@@ -135,5 +134,5 @@ class PlaceController {
                 render(status: 405, text: "Allow : DELETE")
                 break;
         }
-    }
+    }*/
 }
