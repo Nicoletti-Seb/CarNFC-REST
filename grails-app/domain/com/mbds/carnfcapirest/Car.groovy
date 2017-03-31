@@ -11,6 +11,8 @@ class Car {
     Date endInsurance
     Place place
 
+    static hasOne = [place: Place]
+
     static belongsTo = [person: Person]
 
     static constraints = {

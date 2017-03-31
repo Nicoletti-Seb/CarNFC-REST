@@ -13,14 +13,14 @@ class BootStrap {
                 nextMaintenance: new Date(date: 12, month: 10, year: 2017),
                 endInsurance: new Date(date: 20, month: 02, year: 2019),
                 person: person1,
-                place: new Place(lat: 0.0, lon: 0.0)
+                place: new Place(lat: 7.1, lon: 8.2)
         ).save(flush:true,failOnError: true)
 
         def car2 = new Car(matricule: "car2", marque: "marque2",
                 nextMaintenance: new Date(date: 12, month: 10, year: 2017),
                 endInsurance: new Date(date: 20, month: 02, year: 2019),
                 person: person2,
-                place: new Place()
+                place: new Place(lat: 42.3, lon: 9.3)
         ).save(flush:true,failOnError: true)
     }
 
