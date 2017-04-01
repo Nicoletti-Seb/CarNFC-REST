@@ -2,6 +2,9 @@ package com.mbds.carnfcapirest
 
 import grails.converters.JSON
 import grails.converters.XML
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 
 class PersonController {
 
@@ -139,18 +142,32 @@ class PersonController {
     def login() {
         switch (request.getMethod()) {
             case "POST":
+                Map result = new HashMap()
+                result.put("success", false)
                 def personInstance = Person.findByMail(request.JSON.mail);
 
                 if(!personInstance) {
-                    render(status: 404, text: "person mail not found")
+                    response.status = 404
+
+                    result.put("message", "mail not found")
+
+                    renderApplication(result)
                     return
                 }
 
                 if(personInstance.password.equals(request.JSON.password)) {
                     response.status = 200
-                    renderApplication(personInstance)
+
+                    result.put("success", true)
+                    result.put("user", personInstance)
+
+                    renderApplication(result)
                 } else {
-                    render(status: 400, text: "wrong password")
+                    response.status = 404
+
+                    result.put("message", "wrong password")
+
+                    renderApplication(result)
                     personInstance.errors.allErrors.each { println it }
                 }
                 break;

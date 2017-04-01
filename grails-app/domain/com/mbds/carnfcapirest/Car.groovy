@@ -9,7 +9,6 @@ class Car {
     String marque
     Date nextMaintenance
     Date endInsurance
-    Place place
 
     static hasOne = [place: Place]
 
