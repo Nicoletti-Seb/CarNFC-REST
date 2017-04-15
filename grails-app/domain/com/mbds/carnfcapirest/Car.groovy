@@ -14,10 +14,10 @@ class Car {
 
     static belongsTo = [person: Person]
 
-    static constraints = {
-        matricule           nullable: false, blank: false, unique: true
+    /*static constraints = {
+        matricule           unique: true
         marque              nullable: false, blank: false
         nextMaintenance     nullable: false, blank: false
         endInsurance        nullable: false, blank: false
-    }
+    }*/
 }

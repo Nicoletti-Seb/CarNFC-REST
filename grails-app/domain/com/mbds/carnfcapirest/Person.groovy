@@ -12,10 +12,10 @@ class Person {
 
     static hasMany = [cars: Car]
 
-    static constraints = {
+    /*static constraints = {
         firstName       nullable: false, blank: false
         lastName        nullable: false, blank: false
         mail            nullable: false, mail:true, blank: false, unique: true
         password        nullable: false, blank: false
-    }
+    }*/
 }
